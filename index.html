@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Password Protection Screen -->
+    <div id="password-screen" class="screen active">
+        <div class="password-box">
+            <h1>Enter Password</h1>
+            <form id="password-form">
+                <input type="password" id="password-input" placeholder="Password" required>
+                <button type="submit">Unlock</button>
+            </form>
+            <p id="password-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- 2. Main Content Screen -->
+    <div id="main-content" class="screen">
+        <header>
+            <h1>My Characters</h1>
+        </header>
+        <div id="character-list" class="character-grid">
+            <!-- Character cards will be generated here -->
+        </div>
+        <button id="add-char-btn" class="add-btn">+</button>
+    </div>
+
+    <!-- 3. Add/Edit Character FORM Modal -->
+    <div id="char-form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Add New Character</h2>
+            <form id="char-form">
+                <input type="hidden" id="edit-char-index">
+                <div class="form-group">
+                    <label for="char-pic">Profile Picture (URL or Paste)</label>
+                    <input type="text" id="char-pic" placeholder="Paste image or enter URL" required>
+                </div>
+                <div class="form-group">
+                    <label for="char-name">Name</label>
+                    <input type="text" id="char-name" required>
+                </div>
+                <fieldset>
+                    <legend>Appearance</legend>
+                    <div class="form-group"><label for="char-hair">Hair Style & Color</label><input type="text" id="char-hair"></div>
+                    <div class="form-group"><label for="char-eyes">Eye Color</label><input type="text" id="char-eyes"></div>
+                    <div class="form-group"><label for="char-figure">Body Figure</label><input type="text" id="char-figure"></div>
+                </fieldset>
+                <div class="form-group"><label for="char-outfit">Outfit</label><textarea id="char-outfit" rows="3"></textarea></div>
+                <div class="form-group"><label for="char-personality">Personality</label><textarea id="char-personality" rows="3"></textarea></div>
+                <div class="form-group"><label for="char-relationship">Relationship with Me</label><textarea id="char-relationship" rows="3"></textarea></div>
+                <div class="form-group"><label for="char-preferences">Preferences</label><textarea id="char-preferences" rows="3" placeholder="Likes, dislikes..."></textarea></div>
+                <div class="form-group"><label for="char-notes">Notes (Optional)</label><textarea id="char-notes" rows="4" placeholder="Backstory..."></textarea></div>
+                <button type="submit" class="save-btn">Save Character</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ★★★ NEW: Character DETAILS Modal ★★★ -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content details-modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="details-layout">
+                <div class="details-image">
+                    <img id="details-pic" src="" alt="Character Image">
+                </div>
+                <div class="details-info">
+                    <h2 id="details-name"></h2>
+                    <div class="info-group"><h3 class="details-header">Appearance</h3><p id="details-appearance"></p></div>
+                    <div class="info-group"><h3 class="details-header">Outfit</h3><p id="details-outfit"></p></div>
+                    <div class="info-group"><h3 class="details-header">Personality</h3><p id="details-personality"></p></div>
+                    <div class="info-group"><h3 class="details-header">Relationship</h3><p id="details-relationship"></p></div>
+                    <div class="info-group"><h3 class="details-header">Preferences</h3><p id="details-preferences"></p></div>
+                    <div id="details-notes-group" class="info-group"><h3 class="details-header">Notes</h3><p id="details-notes"></p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
